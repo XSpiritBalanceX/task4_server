@@ -1,12 +1,12 @@
 const {Sequelize}=require('sequelize');
 
 module.exports=new Sequelize(
-    process.env.DB_NAME || 'railway',
-    process.env.DB_USER || 'postgres',
-    process.env.DB_PASSWORD || 'pfMYfubSfOdqlXfWZAO7',
+    'railway' || process.env.DB_NAME,
+     'postgres' || process.env.DB_USER,
+     'pfMYfubSfOdqlXfWZAO7' || process.env.DB_PASSWORD,
     {
         dialect:'postgres',
-        host:process.env.DB_HOST || "containers-us-west-137.railway.app",
-        port:process.env.DB_PORT || 7845,
+        host:"containers-us-west-137.railway.app" || process.env.DB_HOST,
+        port: 7845 || process.env.DB_PORT
     }
 )
