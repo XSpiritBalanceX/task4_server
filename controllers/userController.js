@@ -4,7 +4,7 @@ class UserController{
 
     async getTable(req, res, next){
         try{ 
-            let users=await User.findAll({attributes:['id']});
+            let users=await User.findAll({attributes:['id', 'name', 'email', 'password', 'data_reg', 'data_log']});
             return res.json(users);
         }catch(e){
             return res.status(500).json({message:'Something went wrong, please try again'});
