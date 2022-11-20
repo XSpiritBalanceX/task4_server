@@ -7,6 +7,7 @@ const PORT=5000||process.env.PORT
 const errorHandler=require('./middleware/ErrorHandlingMiddleware')
 
 const app=express()
+start()
 app.use(cors())
 app.use(express.json())
 app.use('/api', router)
@@ -22,4 +23,4 @@ const start=async ()=>{
     }
 }
 
-start()
+
