@@ -30,7 +30,8 @@ class AuthController{
     }
 
     async login (req, res, next){
-        try{ 
+        return res.json(req.body)
+        /* try{ 
            const {email, password}=req.body;
            const user=await User.findOne({where:{email}})
            if(!user){
@@ -47,7 +48,7 @@ class AuthController{
            return res.json({token, message:'Successfully'})
        }catch(e){
          return next(ApiError.internal('Something went wrong, please try again'));
-       }  
+       }   */
    }
 
 }
