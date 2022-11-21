@@ -21,7 +21,7 @@ class AuthController{
             }
             const hashPassword= await bcrypt.hash(password, 5);
             const today=new Date().toLocaleString();
-            const user=await User.create({name, email, password:hashPassword, data_reg:today, data_log:today, '"createdAt" DESC':new Date(), '"updatedAt" DESC':new Date()});
+            const user=await User.create({name, email, password:hashPassword, data_reg:today, data_log:today, createdat:new Date(), updatedat:new Date()});
             const token=generateJwt(user.id,user.email);
            return res.json({token,message:'You have successfully registration!'});
         }catch(e){
