@@ -21,7 +21,7 @@ class AuthController{
             }
             const hashPassword= await bcrypt.hash(password, 5);
             const today=new Date().toLocaleString();
-            const user=await User.create({name, email, password:hashPassword, data_reg:today, data_log:today});
+            const user=await User.create({name, email, password:hashPassword, data_reg:today, data_log:today, createdAt:new Date(), updatedAt:new Date()});
             const token=generateJwt(user.id,user.email);
            return res.json({token,message:'You have successfully registration!'});
         }catch(e){
@@ -30,8 +30,7 @@ class AuthController{
     }
 
     async login (req, res, next){
-        return res.json({message:req.body})
-        /* try{ 
+        try{ 
            const {email, password}=req.body;
            const user=await User.findOne({where:{email}})
            if(!user){
@@ -48,7 +47,7 @@ class AuthController{
            return res.json({token, message:'Successfully'})
        }catch(e){
          return next(ApiError.internal('Something went wrong, please try again'));
-       }   */
+       }  
    }
 
 }
