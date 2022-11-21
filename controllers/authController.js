@@ -30,7 +30,7 @@ class AuthController{
     }
 
     async login (req, res, next){
-        return res.json(req.body)
+        return res.json({message:req.body})
         /* try{ 
            const {email, password}=req.body;
            const user=await User.findOne({where:{email}})
